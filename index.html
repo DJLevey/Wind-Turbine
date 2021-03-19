@@ -3,20 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Turbine Inspection</title>
+		<link rel="stylesheet" href="table.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<style>
-			table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-			}
-			th, td {
-			padding: 15px;
-			text-align: left;
-			}
-		</style>
 	</head>
 	<body>
-		<table id="table">
+		<h1>
+			Wind Turbine Inspection
+		</h1>
+		<table id="statusTable" class="blueTable">
 			<thead>
 				<tr>
 					<th>Part ID</th>
@@ -28,13 +22,14 @@
 		</table>
 
 		<script>
-			$.get("http://3.8.234.232/generate_data.php", function(data){
-				var table = $('#table tbody');
-				$.each(JSON.parse(data), function(partID, status){
-					document.append(status)
+			$.get("http://ec2-35-178-175-190.eu-west-2.compute.amazonaws.com/generate_data.php", function(data){
+				var table = $("#statusTable tbody");
+				$.each(JSON.parse(data), function(index, status){
 					table.append(
-						$('<td>').text(partID),
-          				$('<td>').text(status)
+						"<tr>",
+						$("<td>").text(status.id),
+          				$("<td>").text(status.status),
+						"</tr>"
 					);
 				});
 			});
