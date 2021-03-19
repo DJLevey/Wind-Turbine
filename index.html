@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Turbine Inspection</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			}
+			th, td {
+			padding: 15px;
+			text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="table">
+			<thead>
+				<tr>
+					<th>Part ID</th>
+					<th>Inspection Status</th>
+				</tr>
+			</thead>			
+			<tbody>
+			</tbody>
+		</table>
+
+		<script>
+			$.get("http://3.8.234.232/generate_data.php", function(data){
+				var table = $('#table tbody');
+				$.each(JSON.parse(data), function(partID, status){
+					document.append(status)
+					table.append(
+						$('<td>').text(partID),
+          				$('<td>').text(status)
+					);
+				});
+			});
+		</script>
+	</body>
+</html>
