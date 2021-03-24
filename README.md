@@ -23,9 +23,10 @@ Application hosted on AWS Ubuntu platform running Apache: http://ec2-35-178-175-
 ### HTML file
 If multiple pages are to be added to the application, a template should be created to add common elements and functionality, such as navigation, to each page. If the page is to be integrated into an existing app, then it should use the apps existing template to keep consistency.
 Functionality can be added to the table depending on user requirements, e.g.:
-  * Refresh table at regular intervals and a visual alert when the status of a part changes.
+  * Refresh table at regular intervals and a visual or audible alert when the status of a part changes.
   * The user ability to add or hide additional columns.
-  * Sort and search options.
+  * Table sort and search functions.
+  * Hyperlinks to part or fault specific pages.
 
 ### PHP file
 The php file should be replaced so that instead of generating arbitrary sample data, the file will retrieve the data from a database. If the user can specify the columns they require, the file should only request that information.
