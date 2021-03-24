@@ -4,7 +4,9 @@
 		<meta charset="utf-8">
 		<title>Turbine Inspection</title>
 		<link rel="stylesheet" href="table.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" 
+			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+			crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<h1>
@@ -21,7 +23,7 @@
 			</tbody>
 		</table>
 
-		<script>
+		<script type="text/javascript">
 			$.get("http://ec2-35-178-175-190.eu-west-2.compute.amazonaws.com/generate_data.php", function(data){
 				var table = $("#statusTable tbody");
 				$.each(JSON.parse(data), function(index, status){
