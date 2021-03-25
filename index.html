@@ -24,7 +24,7 @@
 		</table>
 
 		<script type="text/javascript">
-			$.get("http://ec2-35-178-175-190.eu-west-2.compute.amazonaws.com/generate_data.php", function(data){
+			$.get("generate_data.php", function(data){
 				var table = $("#statusTable tbody");
 				$.each(JSON.parse(data), function(index, status){
 					table.append(
